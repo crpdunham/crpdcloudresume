@@ -30,14 +30,14 @@ class CrpdcloudresumeStack(Stack):
 
         apigw.LambdaRestApi(
             self, 'Endpoint',
-            handler=hello_with_counter._handler,
+            handler=hello_with_counter._handler
         )
 
 # documentation here: https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_s3_deployment/BucketDeployment.html
         website_bucket = s3.Bucket(
             self, "WebsiteBucket",
             website_index_document="index.html",
-            public_read_access=True
+            public_read_access=True,
         )
 
         s3deploy.BucketDeployment(
@@ -45,7 +45,6 @@ class CrpdcloudresumeStack(Stack):
             sources=[s3deploy.Source.asset(
                 "./website-dist")],
             destination_bucket=website_bucket,
-            destination_key_prefix="web/static"
         )
 
 # Pyhton Refrence for CDK https://docs.aws.amazon.com/cdk/api/v1/python/index.html

@@ -16,6 +16,8 @@ def handler(event, context):
         ExpressionAttributeValues={':incr': 1}
     )
 # documentation here: https://www.fernandomc.com/posts/ten-examples-of-getting-data-from-dynamodb-with-python-and-boto3/
+
+# https://cloudofthings.net/lab-86/
     response = table.get_item(
         Key={
             'path': event['path'],

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script>
-    document.getElementById("demo").innerHTML = "Hello JavaScript!";
-    </script>
+
 <style>
 body {
   background-color: white
@@ -58,6 +56,20 @@ p {
 <p>Blah Blah</p>
 
 
+
+<p class="counter"> The number of visitors to this website is </p>
+<p id ="body"></p>
+    <script type = "text/javascript">
+      var apiUrl = "https://nchd97oli8.execute-api.us-east-1.amazonaws.com/prod/";
+          fetch(apiUrl,{
+            mode: 'no-cors'
+          })
+             .then(response => response.json())
+             .then(data =>{
+                  var count = document.getElementById('body');
+              count.innerHTML = data.body;
+              console.log(data)});
+       </script>
 
 </body>
 </html>
